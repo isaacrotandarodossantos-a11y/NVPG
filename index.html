@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUIA PRÁTICO PARA MENOPAUSA | OFICIAL </title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+	<link rel="icon" type="image/x-icon" href="https://img.freepik.com/fotos-premium/aquarela-coracao-rosa-coracao-desenhado-a-mao-isolado-em-branco_534011-1992.jpg?semt=ais_user_personalization&w=740&q=80">
+    <style>
+        :root {
+            --primary-blue: #0056b3;
+            --secondary-blue: #004494;
+            --light-blue: #f0f7ff;
+            --white: #ffffff;
+            --text-dark: #1a1a1a;
+            --green-cta: #28a745;
+            --red-danger: #dc3545;
+        }
+
+        /* Reset e Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--text-dark); background-color: var(--white); text-align: center; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        img { max-width: 100%; height: auto; }
+
+        /* Menu */
+        header { background: var(--white); padding: 15px 0; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; }
+        nav .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 800; color: var(--primary-blue); font-size: 1.5rem; text-decoration: none; }
+        .menu-links { display: flex; gap: 20px; }
+        .menu-links a { text-decoration: none; color: #555; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+        .menu-links a:hover { color: var(--primary-blue); }
+
+        /* Hero */
+        .hero { padding: 60px 0; background: linear-gradient(180deg, var(--light-blue) 0%, var(--white) 100%); }
+        .headline { font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 800; color: var(--primary-blue); margin-bottom: 20px; line-height: 1.2; }
+        .subheadline { font-size: clamp(1rem, 3vw, 1.25rem); color: #444; margin: 0 auto 40px; max-width: 850px; padding: 0 10px; }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; max-width: 850px; margin: 0 auto 30px; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .users-count { font-size: 0.85rem; color: #666; margin-top: 10px; font-weight: 600; }
+
+        /* Botão Pulsante */
+        .btn-pulsante {
+            display: inline-block;
+            background-color: var(--green-cta);
+            color: white;
+            padding: 18px 35px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            text-decoration: none;
+            border-radius: 50px;
+            text-transform: uppercase;
+            animation: pulse 2s infinite;
+            margin: 20px 0;
+            transition: 0.3s;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(40, 167, 69, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(40, 167, 69, 0); }
+        }
+
+        /* Seções Gerais */
+        section { padding: 80px 0; }
+        .section-title { font-size: 2.2rem; color: var(--primary-blue); margin-bottom: 40px; font-weight: 800; }
+
+        /* Solução */
+        .solucao { background: #fff; }
+        .solucao p { max-width: 800px; margin: 0 auto; font-size: 1.15rem; }
+
+        /* Benefícios */
+        .beneficios { background: var(--light-blue); }
+        /* Container que segura os 4 cards */
+					/* AS IMAGENS: Agora menores e controladas */
+					.card-beneficio img {
+						width: 100%;       /* Ela tenta ocupar o card... */
+						max-width: 140px;  /* ...mas para aqui! Ajuste esse valor para diminuir mais se quiser */
+						height: 90px;     /* Altura reduzida para ficar mais delicado */
+						object-fit: cover; /* Mantém o corte perfeito sem distorcer */
+						border-radius: 15px;
+						margin: 0 auto 15px; /* Centraliza a imagem e dá espaço para o título */
+						display: block;
+						box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Um sombreado leve na foto */
+					}
+
+					/* Ajuste no Grid para os cards não ficarem tão largos em telas grandes */
+					/* Container dos Benefícios */
+								.grid-beneficios {
+									display: grid;
+									/* Isso força 4 colunas em telas grandes e ajusta para menos em celulares */
+									grid-template-columns: repeat(4, 1fr); 
+									gap: 20px;
+									justify-content: center;
+									align-items: stretch;
+									margin-top: 40px;
+								}
+
+								/* Ajuste do Card para caber na linha */
+								.card-beneficio {
+									background: white;
+									padding: 15px; /* Reduzi o padding para ganhar espaço */
+									border-radius: 15px;
+									box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+									display: flex;
+									flex-direction: column;
+									text-align: center;
+								}
+
+								/* Imagens menores para caberem lado a lado */
+								.card-beneficio img {
+									width: 100%;
+									height: 150px; /* Altura reduzida para não ocupar a tela toda */
+									object-fit: cover;
+									border-radius: 10px;
+									margin-bottom: 15px;
+								}
+
+								/* RESPONSIVIDADE: Importante para não quebrar no celular */
+								@media (max-width: 1024px) {
+									.grid-beneficios {
+										grid-template-columns: repeat(2, 1fr); /* 2 por linha em tablets */
+									}
+								}
+
+								@media (max-width: 600px) {
+									.grid-beneficios {
+										grid-template-columns: 1fr; /* 1 por linha no celular para não ficar espremido */
+									}
+								}
+
+					.card-beneficio {
+						background: white;
+						padding: 20px;
+						border-radius: 20px;
+						box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+						display: flex;
+						flex-direction: column;
+						text-align: center;
+						transition: 0.3s;
+					}
+
+        /* Público */
+        .box-publico { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .box-item { padding: 40px; border-radius: 20px; display: flex; flex-direction: column; align-items: center; }
+        .box-item.sim { background: #f0fff4; border: 2px solid #28a745; }
+        .box-item.nao { background: #fff5f5; border: 2px solid #dc3545; }
+        .box-item h3 { margin-bottom: 25px; font-size: 1.5rem; }
+        .box-item ul { list-style: none; text-align: center; width: 100%; }
+        .box-item li { margin-bottom: 15px; display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: 500; }
+
+						/* O que aprender */
+				/* Seção O que você irá dominar */
+				.aprender {
+					background-color: #fcfcfc;
+				}
+
+				.grid-etapas {
+					display: grid;
+					grid-template-columns: repeat(3, 1fr); /* 3 colunas em telas grandes */
+					gap: 25px;
+					margin-top: 40px;
+				}
+
+				.card-etapa {
+					background: #ffffff;
+					padding: 30px;
+					border-radius: 25px; /* Bordas bem arredondadas como na foto */
+					text-align: left; /* Alinhado à esquerda conforme a imagem */
+					box-shadow: 0 10px 30px rgba(0,0,0,0.03); /* Sombra bem leve */
+					border: 1px solid #f0f0f0;
+					transition: transform 0.3s ease;
+				}
+
+				.card-etapa:hover {
+					transform: translateY(-5px);
+					box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+				}
+
+				.step-number {
+					display: block;
+					font-size: 0.75rem;
+					font-weight: 800;
+					color: #ff8a8a; /* Cor rosada suave da Etapa 01 */
+					margin-bottom: 15px;
+					letter-spacing: 1px;
+				}
+
+				.card-etapa h3 {
+					font-size: 1.25rem;
+					font-weight: 900;
+					color: #1a1a1a;
+					margin-bottom: 15px;
+					line-height: 1.2;
+					font-family: 'Inter', sans-serif;
+				}
+
+				.card-etapa p {
+					font-size: 0.95rem;
+					color: #888;
+					font-style: italic; /* Conforme o layout da imagem */
+					line-height: 1.5;
+				}
+
+				/* Ajustes para Celular e Tablet */
+				@media (max-width: 992px) {
+					.grid-etapas { grid-template-columns: repeat(2, 1fr); }
+				}
+
+				@media (max-width: 600px) {
+					.grid-etapas { grid-template-columns: 1fr; }
+				}
+
+        /* Prova Social */
+        .prova-social { background: var(--primary-blue); color: white; overflow: hidden; }
+        .prova-social .section-title { color: white; }
+        .slider { display: flex; animation: slide 20s linear infinite; width: calc(300px * 10); gap: 20px; }
+        .depoimento { min-width: 300px; background: rgba(255,255,255,0.1); padding: 25px; border-radius: 15px; font-style: italic; }
+        @keyframes slide { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-300px * 5)); } }
+
+        /* CTA Checkout */
+        .checkout-box { max-width: 600px; margin: 40px auto; padding: 40px; background: white; border-radius: 25px; box-shadow: 0 15px 50px rgba(0,0,0,0.1); border: 2px solid var(--light-blue); }
+        .lista-oferta { text-align: left; margin: 25px 0; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+        .lista-oferta p { margin-bottom: 10px; font-weight: 500; }
+        .preco-antigo { text-decoration: line-through; color: #888; font-size: 1.2rem; }
+        .preco-novo { font-size: 4rem; color: var(--primary-blue); font-weight: 900; margin: 10px 0; }
+
+        /* FAQ */
+        .faq { background: #f9f9f9; }
+        .faq-container { max-width: 800px; margin: 0 auto; text-align: left; }
+        details { background: white; padding: 20px; border-radius: 10px; margin-bottom: 15px; border: 1px solid #eee; cursor: pointer; }
+        summary { font-weight: 700; color: var(--primary-blue); list-style: none; outline: none; }
+        details p { margin-top: 15px; color: #555; }
+
+        /* Rodapé */
+        footer { padding: 40px 0; border-top: 1px solid #eee; font-size: 0.9rem; color: #888; }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .menu-links { display: none; }
+            nav .container { justify-content: center; }
+            section { padding: 50px 0; }
+            .preco-novo { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+   <style>
+    /* Ajustes específicos para centralização total */
+    header { 
+        background: var(--white); 
+        padding: 20px 0; 
+        border-bottom: 1px solid #eee; 
+        position: sticky; 
+        top: 0; 
+        z-index: 1000; 
+    }
+
+    nav .container { 
+        display: flex; 
+        flex-direction: column; /* Coloca o logo em cima e os links embaixo */
+        align-items: center;    /* Centraliza horizontalmente */
+        justify-content: center; 
+        gap: 15px;              /* Espaço entre o logo e o menu */
+    }
+
+    .logo { 
+        font-weight: 800; 
+        color: var(--primary-blue); 
+        font-size: 1.8rem; 
+        text-decoration: none; 
+    }
+
+    .menu-links { 
+        display: flex; 
+        gap: 20px; 
+        justify-content: center;
+        flex-wrap: wrap;       /* Garante que em celulares os links não quebrem o layout */
+    }
+
+    .menu-links a { 
+        text-decoration: none; 
+        color: #555; 
+        font-weight: 600; 
+        font-size: 0.95rem; 
+        transition: 0.3s; 
+    }
+
+    .menu-links a:hover { 
+        color: var(--primary-blue); 
+    }
+
+    /* Opcional: Se quiser que eles fiquem na mesma linha, mas centralizados no meio da tela */
+    @media (min-width: 769px) {
+        nav .container {
+            flex-direction: row; /* Volta para linha em telas grandes */
+            justify-content: center; /* Mantém no centro da tela e não nas pontas */
+            gap: 40px; /* Espaço entre o logo e o início dos links */
+        }
+    }
+</style>
+
+<header>
+    <nav class="container">
+        <a href="#" class="logo">Guia Menopausa</a>
+        <div class="menu-links">
+            <a href="#solucao">A SOLUÇÃO</a>
+            <a href="#beneficios">BENEFÍCIOS</a>
+            <a href="#aprendizado">CONTEÚDOS</a>
+            <a href="#faq">DÚVIDAS</a>
+        </div>
+    </nav>
+</header>
+
+    <section class="hero">
+        <div class="container">
+            <h1 class="headline">RETOME SUA VITALIDADE E EQUILÍBRIO NATURAL NA MENOPAUSA</h1>
+            <p class="subheadline">Descubra o método testado para eliminar fogachos, insônia e cansaço constante reequilibrando seu corpo de forma 100% natural.</p>
+            
+				<div style="width: 100%; max-width: 850px; margin: 20px auto; text-align: center;">
+					
+					<p style="background: #ff0000; color: #fff; padding: 10px; border-radius: 5px; font-weight: bold; margin-bottom: 15px; animation: pulse 1.5s infinite;">
+						⚠️ O VÍDEO JÁ COMEÇOU: CLIQUE NO ALTO-FALANTE PARA OUVIR 🔊
+					</p>
+
+					<video 
+						autoplay 
+						muted 
+						controls 
+						playsinline
+						style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);"
+					>
+						<source src="dr.mp4" type="video/mp4">
+						Seu navegador não suporta vídeos.
+					</video>
+				</div>
+
+            <a href="https://pay.kirvano.com/90d6d27c-71d3-424f-89b7-0a8e512f78f2" class="btn-pulsante">QUERO COMEÇAR AGORA</a>
+            <p class="users-count">🔥 12.540 mulheres já estão transformando suas vidas hoje.</p>
+        </div>
+    </section>
+	
+	<section style="padding: 60px 20px; text-align: center; background-color: #ffffff; font-family: sans-serif;">
+			<div style="max-width: 1000px; margin: 0 auto;">
+				
+				<h2 style="font-size: 40px; font-weight: 900; line-height: 1.1; margin-bottom: 10px; color: #1a1a1a;">
+					O CICLO DE <span style="font-family: serif; font-style: italic; color: #888; font-weight: 400;">EXAUSTÃO</span><br>
+					QUE VOCÊ ESTÁ VIVENCIANDO:
+				</h2>
+				
+				<p style="color: #aaa; letter-spacing: 2px; font-size: 12px; margin-bottom: 50px; text-transform: uppercase;">
+					SINTOMAS QUE ROUBAM SUA ENERGIA E IDENTIDADE TODOS OS DIAS.
+				</p>
+
+				<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+					
+					<div style="background: #ffffff; padding: 40px 30px; border-radius: 40px; box-shadow: 0 15px 40px rgba(0,0,0,0.05); border: 1px solid #f0f0f0; width: 280px;">
+						<div style="font-size: 40px; margin-bottom: 20px;">🔥</div>
+						<h3 style="font-size: 18px; font-weight: 900; margin-bottom: 15px; color: #1a1a1a;">FOGACHOS</h3>
+						<p style="font-size: 15px; color: #777; line-height: 1.6; font-style: italic;">CALORES REPENTINOS QUE TIRAM SUA PAZ E FOCO EM QUALQUER LUGAR, A QUALQUER HORA.</p>
+					</div>
+
+					<div style="background: #ffffff; padding: 40px 30px; border-radius: 40px; box-shadow: 0 15px 40px rgba(0,0,0,0.05); border: 1px solid #f0f0f0; width: 280px;">
+						<div style="font-size: 40px; margin-bottom: 20px;">😴</div>
+						<h3 style="font-size: 18px; font-weight: 900; margin-bottom: 15px; color: #1a1a1a;">INSÔNIA</h3>
+						<p style="font-size: 15px; color: #777; line-height: 1.6; font-style: italic;">NOITES MAL DORMIDAS QUE RESULTAM EM DIAS DE CANSAÇO EXTREMO E IRRITABILIDADE.</p>
+					</div>
+
+					<div style="background: #ffffff; padding: 40px 30px; border-radius: 40px; box-shadow: 0 15px 40px rgba(0,0,0,0.05); border: 1px solid #f0f0f0; width: 280px;">
+						<div style="font-size: 40px; margin-bottom: 20px;">⚖️</div>
+						<h3 style="font-size: 18px; font-weight: 900; margin-bottom: 15px; color: #1a1a1a;">METABOLISMO</h3>
+						<p style="font-size: 15px; color: #777; line-height: 1.6; font-style: italic;">GANHO DE PESO INEXPLICÁVEL, PRINCIPALMENTE NA REGIÃO ABDOMINAL, QUE NÃO CEDE.</p>
+					</div>
+
+				</div>
+			</div>
+		</section>
+    <section id="solucao" class="solucao">
+        <div class="container">
+            <h2 class="section-title">A SOLUÇÃO QUE FOCA NA RAIZ</h2>
+            <p> Enquanto a maioria das soluções tenta apenas apagar os incêndios — como os fogachos e a irritabilidade — o nosso método vai onde o problema realmente começa: na sua reestruturação hormonal natural. Nós não damos ao seu corpo algo sintético; nós ensinamos o seu corpo a trabalhar para você novamente. O resultado? O retorno da sua energia, uma pele visivelmente mais hidratada e o prazer de dormir a noite inteira sem interrupções.  </p>
+        </div>
+    </section>
+
+    <section id="beneficios" class="beneficios">
+        <div class="container">
+            <h2 class="section-title">POR QUE ESTE GUIA É ESSENCIAL?</h2>
+            <div class="grid-beneficios">
+                <div class="card-beneficio">
+                    <img src="https://img.freepik.com/fotos-gratis/minha-cama-e-minha-melhor-amiga_329181-10418.jpg" alt="Sono">
+                    <h3>Sono Reparador</h3>
+                    <p>Regule seu ciclo circadiano e apague de vez os suores noturnos que interrompem seu descanso.</p>
+                </div>
+                <div class="card-beneficio">
+                    <img src="https://www.uai.com.br/uainoticias/wp-content/uploads/2025/09/Mulher-comendo_1757689030005-1024x576.jpg" alt="Energia">
+                    <h3>Energia Diária</h3>
+                    <p>Recupere a disposição para suas atividades favoritas e elimine aquela exaustão ao acordar.</p>
+                </div>
+                <div class="card-beneficio">
+                    <img src="https://blog.samisaude.com.br/wp-content/uploads/2023/07/fashionable-gray-haired-young-woman-yogi-practicing-meditation-her-bedroom-sitting-lotus-pose-closing-eyes-making-mudra-gesture.jpg" alt="Humor">
+                    <h3>Equilíbrio Emocional</h3>
+                    <p>Estratégias nutricionais focadas em estabilizar o humor e combater a irritabilidade constante.</p>
+                </div>
+                <div class="card-beneficio">
+                    <img src="https://img.freepik.com/fotos-gratis/mulher-em-forma-satisfeita-com-balanca-de-peso_329181-3793.jpg?semt=ais_hybrid&w=740&q=80" alt="Metabolismo">
+                    <h3>Peso Sob Controle</h3>
+                    <p>Aprenda a ativar seu metabolismo mesmo com a queda hormonal natural do período.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">Isso é para você?</h2>
+            <div class="box-publico">
+                <div class="box-item sim">
+                    <h3 style="color: #28a745;">É para você que:</h3>
+                    <ul>
+                        <li>✅ SOFRE COM ONDAS DE CALOR INTENSAS</li>
+						<li>✅ SENTE-SE EXAUSTA E SEM LIBIDO</li>
+						<li>✅ BUSCA UMA ALTERNATIVA SEM QUÍMICOS</li>
+						<li>✅ QUER RECUPERAR SUA AUTOESTIMA</li>
+                    </ul>
+                </div>
+                <div class="box-item nao">
+                    <h3 style="color: #dc3545;">NÃO é para você que:</h3>
+                    <ul>
+                        <li>🚫 BUSCA MILAGRES DA NOITE PARA O DIA</li>
+						<li>🚫 NÃO ESTÁ DISPOSTA A SEGUIR O PASSO A PASSO</li>
+						<li>🚫 PREFERE TRATAMENTOS CAROS E INVASIVOS</li>
+						<li>🚫 NÃO PRIORIZA SUA SAÚDE E BEM-ESTAR</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="aprendizado" class="aprender">
+    <div class="container">
+        <h2 class="section-title">O QUE VOCÊ IRÁ DOMINAR</h2>
+        <div class="grid-etapas">
+            <div class="card-etapa">
+                <span class="step-number">ETAPA 01</span>
+                <h3>MAPEAMENTO DE SINTOMAS</h3>
+                <p>Entenda exatamente o que está acontecendo com seus hormônios.</p>
+            </div>
+            <div class="card-etapa">
+                <span class="step-number">ETAPA 02</span>
+                <h3>HACK DE ESTILO DE VIDA</h3>
+                <p>Pequenas mudanças que devolvem sua energia em 48 horas.</p>
+            </div>
+            <div class="card-etapa">
+                <span class="step-number">ETAPA 03</span>
+                <h3>REPOSIÇÃO NATURAL</h3>
+                <p>Alimentos que atuam como estrogênio natural no corpo.</p>
+            </div>
+            <div class="card-etapa">
+                <span class="step-number">ETAPA 04</span>
+                <h3>MOVIMENTO HORMONAL</h3>
+                <p>Yoga e exercícios que acalmam o sistema nervoso.</p>
+            </div>
+            <div class="card-etapa">
+                <span class="step-number">ETAPA 05</span>
+                <h3>BLINDAGEM DO SONO</h3>
+                <p>Técnicas para dormir profundamente sem acordar suando.</p>
+            </div>
+            <div class="card-etapa">
+                <span class="step-number">ETAPA 06</span>
+                <h3>FARMÁCIA NA COZINHA</h3>
+                <p>O poder das plantas medicinais contra a ansiedade.</p>
+            </div>
+            <div class="card-etapa">
+                <span class="step-number">ETAPA 07</span>
+                <h3>CONTROLE TÉRMICO</h3>
+                <p>O fim definitivo dos fogachos com ervas milenares.</p>
+            </div>
+            <div class="card-etapa">
+                <span class="step-number">ETAPA 08</span>
+                <h3>LIBIDO E AUTOESTIMA</h3>
+                <p>Como retomar o desejo e o brilho na pele e cabelos.</p>
+            </div>
+            <div class="card-etapa">
+                <span class="step-number">ETAPA 09</span>
+                <h3>METABOLISMO 40+</h3>
+                <p>Dieta estratégica para desinflamar e secar a barriga.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section class="prova-social">
+        <div class="container">
+            <h2 class="section-title">O que dizem nossas alunas</h2>
+            <div class="slider">
+                <div class="depoimento">"Os fogachos sumiram em 10 dias. Recomendo muito!"</div>
+                <div class="depoimento">"Finalmente voltei a dormir a noite inteira sem acordar suada."</div>
+                <div class="depoimento">"Minha energia voltou e meu marido notou a diferença no meu humor."</div>
+                <div class="depoimento">"O guia é prático e fácil de seguir. Mudou minha vida!"</div>
+                <div class="depoimento">"Melhor investimento que fiz para minha saúde este ano."</div>
+                <div class="depoimento">"Os fogachos sumiram em 10 dias. Recomendo muito!"</div>
+                <div class="depoimento">"Finalmente voltei a dormir a noite inteira."</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta" style="background: var(--light-blue); padding: 80px 0;">
+    <div class="container">
+        <div class="checkout-box" style="max-width: 700px; margin: 0 auto; background: white; border-radius: 30px; padding: 50px 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); border: 3px solid var(--primary-blue);">
+            
+            <h2 style="color: var(--primary-blue); font-size: 2rem; font-weight: 900; margin-bottom: 30px;">
+                SUA TRANSFORMAÇÃO COMPLETA COMEÇA AQUI
+            </h2>
+
+            <div class="lista-oferta" style="text-align: left; margin-bottom: 30px; border-bottom: 2px dashed #eee; padding-bottom: 20px;">
+                <p style="font-size: 1.1rem; margin-bottom: 15px;">💎 <strong>GUIA MENOPAUSA VITAL:</strong> <span style="float: right; color: #888; text-decoration: line-through;">R$ 97,00</span></p>
+                <p style="font-size: 1.1rem; margin-bottom: 15px;">🎁 <strong>BÔNUS 1: O PODER DOS CHÁS:</strong> <span style="float: right; color: #888; text-decoration: line-through;">R$ 47,00</span></p>
+                <p style="font-size: 1.1rem; margin-bottom: 15px;">🎁 <strong>BÔNUS 2: PLANNER DE SAÚDE:</strong> <span style="float: right; color: #888; text-decoration: line-through;">R$ 27,00</span></p>
+                <p style="font-size: 1.2rem; margin-top: 20px; color: var(--primary-blue); font-weight: 800; border-top: 1px solid #eee; pt: 15px;">VALOR TOTAL: <span style="float: right;">R$ 171,00</span></p>
+            </div>
+
+            <p style="font-size: 1.1rem; color: #cc0000; font-weight: 800; margin-bottom: 10px; text-transform: uppercase;">
+                OFERTA EXCLUSIVA POR TEMPO LIMITADO
+            </p>
+
+            <div style="background: #fff9e6; padding: 20px; border-radius: 15px; margin-bottom: 30px;">
+                <p style="font-size: 1.4rem; color: #333; margin-bottom: 0;">APENAS <strong>3X</strong> DE</p>
+                <h3 style="font-size: 5rem; color: var(--primary-blue); font-weight: 900; line-height: 1; margin: 0;">R$ 9,52</h3>
+                <p style="font-size: 1.2rem; font-weight: 700; color: #666; margin-top: 5px;">OU R$ 25,99 À VISTA</p>
+            </div>
+
+            <a href="https://pay.kirvano.com/90d6d27c-71d3-424f-89b7-0a8e512f78f2" class="btn-pulsante" style="width: 100%; max-width: 450px; font-size: 1.4rem;">
+                SIM! QUERO MINHA VITALIDADE DE VOLTA
+            </a>
+
+            <div style="margin-top: 25px;">
+                <img src="https://cdn.shopify.com/s/files/1/0108/7874/6690/files/pagamentos_mercadopago_480x480.png?v=1564458408" alt="Pagamento Seguro" style="max-width: 250px; opacity: 0.7;">
+                <p style="font-size: 0.85rem; color: #999; margin-top: 10px;">🔒 AMBIENTE 100% SEGURO E CRIPTOGRAFADO</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section style="background: #fff;">
+        <div class="container">
+            <img src="https://imgs.jusbr.com/publications/images/0b0f55cfd83d9552442e15557291a79b" alt="Garantia" style="width: 150px; margin-bottom: 20px;">
+            <h2 style="color: var(--primary-blue); margin-bottom: 20px;">RISCO ZERO - 7 DIAS DE GARANTIA!</h2>
+            <p style="max-width: 700px; margin: 0 auto;">Estamos tão seguros da eficácia deste guia que oferecemos reembolso total. Se você não sentir uma melhora real na primeira semana, devolvemos 100% do seu dinheiro sem perguntas.</p>
+        </div>
+    </section>
+
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="section-title">DÚVIDAS FREQUENTES</h2>
+            <div class="faq-container">
+                <details>
+                    <summary>O guia é físico ou digital?</summary>
+                    <p>O guia é 100% digital, entregue instantaneamente no seu e-mail após a compra.</p>
+                </details>
+                <details>
+                    <summary>Funciona para quem já passou dos 60?</summary>
+                    <p>Sim! O reequilíbrio nutricional auxilia em qualquer fase do climatério ou pós-menopausa.</p>
+                </details>
+                <details>
+                    <summary>Preciso de receitas médicas para seguir as dicas?</summary>
+                    <p>Não. O foco é em hábitos naturais e alimentação. No entanto, sempre recomendamos consultar seu médico.</p>
+                </details>
+                <details>
+                    <summary>E se eu não gostar do conteúdo?</summary>
+                    <p>Você tem 7 dias de garantia total. Basta um e-mail para receber seu dinheiro de volta.</p>
+                </details>
+                <details>
+                    <summary>O pagamento é único?</summary>
+                    <p>Sim! Você paga apenas uma vez R$ 25,99 e tem acesso vitalício a todo o conteúdo e bônus.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Copywriter Profissional &copy; 2026 - Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
