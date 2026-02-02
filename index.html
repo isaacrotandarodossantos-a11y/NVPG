@@ -20,7 +20,95 @@ src="https://www.facebook.com/tr?id=1421157536375694&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 
+    <div id="social-proof-float" class="social-proof">
+  <div class="sp-content">
+    <div class="sp-image">
+      <img src="https://thumbs.dreamstime.com/b/cora%C3%A7%C3%A3o-brilhante-do-vetor-31397346.jpg" alt="Verificado">
+    </div>
+    <div class="sp-text">
+      <p id="sp-message"><b>Maria Silva</b> de São Paulo acabou de comprar!</p>
+      <span id="sp-time">há 2 minutos</span>
+    </div>
+  </div>
+</div>
 
+<style>
+  /* Estilo do Balão */
+  .social-proof {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    display: none; /* Começa escondido */
+    z-index: 9999;
+    max-width: 300px;
+    font-family: sans-serif;
+    border-left: 5px solid #ff4d8d; /* Cor rosa para o nicho menopausa */
+  }
+
+  .sp-content {
+    display: flex;
+    align-items: center;
+  }
+
+  .sp-image img {
+    width: 40px;
+    height: 40px;
+    margin-right: 12px;
+  }
+
+  .sp-text p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+  }
+
+  .sp-text span {
+    font-size: 11px;
+    color: #888;
+  }
+
+  /* Animação */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-in { display: block; animation: fadeInUp 0.5s ease; }
+</style>
+
+<script>
+  const names = ["Ana", "Márcia", "Sônia", "Cláudia", "Helena", "Teresa", "Regina", "Fátima", "Sandra", "Luciana"];
+  const cities = ["São Paulo", "Rio de Janeiro", "Lisboa", "Curitiba", "Porto", "Belo Horizonte", "Salvador"];
+  const times = ["há 2 minutos", "há 5 minutos", "há 30 segundos", "agora mesmo"];
+
+  function showNotification() {
+    const name = names[Math.floor(Math.random() * names.length)];
+    const city = cities[Math.floor(Math.random() * cities.length)];
+    const time = times[Math.floor(Math.random() * times.length)];
+    
+    document.getElementById('sp-message').innerHTML = `<b>${name}</b> de ${city} acabou de comprar!`;
+    document.getElementById('sp-time').innerText = time;
+    
+    const toast = document.getElementById('social-proof-float');
+    toast.classList.add('animate-in');
+    
+    // Esconde o balão após 5 segundos
+    setTimeout(() => {
+      toast.classList.remove('animate-in');
+      toast.style.display = 'none';
+    }, 5000);
+  }
+
+  // Inicia a primeira notificação após 3 segundos e repete a cada 15 segundos
+  setTimeout(() => {
+    showNotification();
+    setInterval(showNotification, 15000);
+  }, 3000);
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GUIA PRÁTICO PARA MENOPAUSA | OFICIAL </title>
@@ -323,7 +411,7 @@ src="https://www.facebook.com/tr?id=1421157536375694&ev=PageView&noscript=1"
 
 <header>
     <nav class="container">
-        <a href="#" class="logo">Guia Menopausa</a>
+        <a href="#" class="logo">COMO RECUPERAR O TEU SONO, ELIMINAR OS FOGACHOS E DESINFLAMAR O CORPO NA MENOPAUSA — SEM REPOSIÇÃO HORMONAL SINTÉTICA</a>
         <div class="menu-links">
             <a href="#solucao">A SOLUÇÃO</a>
             <a href="#beneficios">BENEFÍCIOS</a>
@@ -496,53 +584,207 @@ src="https://www.facebook.com/tr?id=1421157536375694&ev=PageView&noscript=1"
     </div>
 </section>
 
-    <section class="prova-social">
-        <div class="container">
-            <h2 class="section-title">O que dizem nossas alunas</h2>
-            <div class="slider">
-                <div class="depoimento">"Os fogachos sumiram em 10 dias. Recomendo muito!"</div>
-                <div class="depoimento">"Finalmente voltei a dormir a noite inteira sem acordar suada."</div>
-                <div class="depoimento">"Minha energia voltou e meu marido notou a diferença no meu humor."</div>
-                <div class="depoimento">"O guia é prático e fácil de seguir. Mudou minha vida!"</div>
-                <div class="depoimento">"Melhor investimento que fiz para minha saúde este ano."</div>
-                <div class="depoimento">"Os fogachos sumiram em 10 dias. Recomendo muito!"</div>
-                <div class="depoimento">"Finalmente voltei a dormir a noite inteira."</div>
-            </div>
-        </div>
-    </section>
+    <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --text-color: #333;
+            --bg-card: #ffffff;
+        }
 
-    <section id="cta" style="background: var(--light-blue); padding: 80px 0;">
-    <div class="container">
-        <div class="checkout-box" style="max-width: 700px; margin: 0 auto; background: white; border-radius: 30px; padding: 50px 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); border: 3px solid var(--primary-blue);">
+        .social-proof-container {
+            font-family: sans-serif;
+            padding: 40px 20px;
+            background-color: #f8fafc;
+            text-align: center;
+        }
+
+        .proof-grid {
+            display: grid;
+            /* Cria 4 colunas iguais no desktop */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .proof-card {
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .proof-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stars {
+            color: #fbbf24; /* Cor dourada das estrelas */
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--text-color);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: auto;
+        }
+
+        .client-info img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            background-color: #ddd;
+        }
+
+        .client-details {
+            text-align: left;
+        }
+
+        .client-name {
+            display: block;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .client-title {
+            font-size: 0.8rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    .whatsapp-proof-section {
+        padding: 50px 20px;
+        background-color: #f4f1ea; /* Cor de fundo suave */
+        text-align: center;
+        font-family: sans-serif;
+    }
+
+    .whatsapp-proof-section h2 {
+        color: #075e54;
+        margin-bottom: 30px;
+    }
+
+    .proof-grid {
+        display: grid;
+        /* Garante 4 colunas no PC e ajusta no celular */
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .screenshot-wrapper {
+        background: white;
+        padding: 10px;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        overflow: hidden; /* Garante que a imagem não saia do card */
+    }
+
+    .screenshot-wrapper img {
+        width: 100%;
+        /* AQUI ESTÁ O SEGREDO: */
+        height: 450px; /* Força todas a terem a mesma altura */
+        object-fit: cover; /* Faz a imagem preencher o espaço sem esticar */
+        object-position: top; /* Mantém o topo do print (nome da pessoa) visível */
+        border-radius: 8px;
+        display: block;
+    }
+
+    /* Ajuste para telas menores (celular) */
+    @media (max-width: 600px) {
+        .screenshot-wrapper img {
+            height: 400px; 
+        }
+    }
+</style>
+</head>
+<body>
+
+<section class="whatsapp-proof-section">
+    <h2>ALGUNS RESULTADOS DE NOSSAS CLIENTES</h2>
+    
+    <div class="proof-grid">
+        <div class="screenshot-wrapper">
+            <img src="1.jpeg" alt="Feedback WhatsApp 1">
+        </div>
+
+        <div class="screenshot-wrapper">
+            <img src="2.jpeg" alt="Feedback WhatsApp 2">
+        </div>
+
+        <div class="screenshot-wrapper">
+            <img src="3.jpeg" alt="Feedback WhatsApp 3">
+        </div>
+
+        <div class="screenshot-wrapper">
+            <img src="4.jpeg" alt= "Feedback WhatsApp 4">
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
+
+   <section id="cta" style="background: var(--light-blue); padding: 40px 0;"> <div class="container">
+        <div class="checkout-box" style="max-width: 480px; margin: 0 auto; background: white; border-radius: 25px; padding: 25px 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); border: 3px solid var(--primary-blue);">
             
-            <h2 style="color: var(--primary-blue); font-size: 2rem; font-weight: 900; margin-bottom: 30px;">
+            <h2 style="color: var(--primary-blue); font-size: 1.5rem; font-weight: 900; margin-bottom: 15px; line-height: 1.2;">
                 SUA TRANSFORMAÇÃO COMPLETA COMEÇA AQUI
             </h2>
 
-            <div class="lista-oferta" style="text-align: left; margin-bottom: 30px; border-bottom: 2px dashed #eee; padding-bottom: 20px;">
-                <p style="font-size: 1.1rem; margin-bottom: 15px;">💎 <strong>GUIA MENOPAUSA VITAL:</strong> <span style="float: right; color: #888; text-decoration: line-through;">R$ 97,00</span></p>
-                <p style="font-size: 1.1rem; margin-bottom: 15px;">🎁 <strong>BÔNUS 1: O PODER DOS CHÁS:</strong> <span style="float: right; color: #888; text-decoration: line-through;">R$ 47,00</span></p>
-                <p style="font-size: 1.1rem; margin-bottom: 15px;">🎁 <strong>BÔNUS 2: PLANNER DE SAÚDE:</strong> <span style="float: right; color: #888; text-decoration: line-through;">R$ 27,00</span></p>
-                <p style="font-size: 1.2rem; margin-top: 20px; color: var(--primary-blue); font-weight: 800; border-top: 1px solid #eee; pt: 15px;">VALOR TOTAL: <span style="float: right;">R$ 171,00</span></p>
+            <div class="lista-oferta" style="text-align: left; margin-bottom: 15px; border-bottom: 2px dashed #eee; padding-bottom: 10px;">
+                <p style="font-size: 1rem; margin-bottom: 8px;">💎 <strong>GUIA MENOPAUSA VITAL:</strong> <span style="float: right; color: #888; text-decoration: line-through;">R$ 97,00</span></p>
+                <p style="font-size: 1rem; margin-bottom: 8px;">🎁 <strong>BÔNUS 1: O PODER DOS CHÁS:</strong> <span style="float: right; color: #888; text-decoration: line-through;">R$ 47,00</span></p>
+                <p style="font-size: 1rem; margin-bottom: 8px;">🎁 <strong>BÔNUS 2: PLANNER DE SAÚDE:</strong> <span style="float: right; color: #888; text-decoration: line-through;">R$ 27,00</span></p>
+                <p style="font-size: 1.1rem; margin-top: 10px; color: var(--primary-blue); font-weight: 800; border-top: 1px solid #eee; padding-top: 10px;">VALOR TOTAL: <span style="float: right;">R$ 171,00</span></p>
             </div>
 
-            <p style="font-size: 1.1rem; color: #cc0000; font-weight: 800; margin-bottom: 10px; text-transform: uppercase;">
+            <p style="font-size: 0.9rem; color: #cc0000; font-weight: 800; margin-bottom: 10px; text-transform: uppercase;">
                 OFERTA EXCLUSIVA POR TEMPO LIMITADO
             </p>
 
-            <div style="background: #fff9e6; padding: 20px; border-radius: 15px; margin-bottom: 30px;">
-                <p style="font-size: 1.4rem; color: #333; margin-bottom: 0;">APENAS <strong>3X</strong> DE</p>
-                <h3 style="font-size: 5rem; color: var(--primary-blue); font-weight: 900; line-height: 1; margin: 0;">R$ 9,52</h3>
-                <p style="font-size: 1.2rem; font-weight: 700; color: #666; margin-top: 5px;">OU R$ 25,99 À VISTA</p>
+            <div style="background: #fff9e6; padding: 10px; border-radius: 12px; margin-bottom: 20px;">
+                <p style="font-size: 1.1rem; color: #333; margin-bottom: 0;">APENAS <strong>3X</strong> DE</p>
+                <h3 style="font-size: 3.5rem; color: var(--primary-blue); font-weight: 900; line-height: 1; margin: 0;">R$ 9,52</h3>
+                <p style="font-size: 1rem; font-weight: 700; color: #666; margin-top: 5px;">OU R$ 25,99 À VISTA</p>
             </div>
 
-            <a href="https://pay.kirvano.com/90d6d27c-71d3-424f-89b7-0a8e512f78f2" class="btn-pulsante" style="width: 100%; max-width: 450px; font-size: 1.4rem;">
+            <a href="https://pay.kirvano.com/90d6d27c-71d3-424f-89b7-0a8e512f78f2" class="btn-pulsante" style="width: 100%; max-width: 450px; font-size: 1.2rem; padding: 15px 0;">
                 SIM! QUERO MINHA VITALIDADE DE VOLTA
             </a>
 
-            <div style="margin-top: 25px;">
-                <img src="https://cdn.shopify.com/s/files/1/0108/7874/6690/files/pagamentos_mercadopago_480x480.png?v=1564458408" alt="Pagamento Seguro" style="max-width: 250px; opacity: 0.7;">
-                <p style="font-size: 0.85rem; color: #999; margin-top: 10px;">🔒 AMBIENTE 100% SEGURO E CRIPTOGRAFADO</p>
+            <div style="margin-top: 15px;">
+                <img src="https://cdn.shopify.com/s/files/1/0108/7874/6690/files/pagamentos_mercadopago_480x480.png?v=1564458408" alt="Pagamento Seguro" style="max-width: 200px; opacity: 0.7;">
+                <p style="font-size: 0.75rem; color: #999; margin-top: 5px;">🔒 AMBIENTE 100% SEGURO E CRIPTOGRAFADO</p>
             </div>
         </div>
     </div>
